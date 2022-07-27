@@ -5,12 +5,13 @@ import Topo from "./Top/Top";
 import SelectMovie from "./SelectMovie/SelectMovie";
 import SelectHour from "./SelectHour/SelectHour";
 import SeatsList from "./SeatsList/SeatsList";
+import BoughtTicket from "./BoughtTicket/BoughtTicket";
 
 export default function App() {
   return (
     <>
       <Topo />
-      <SeatsList />
+      <BoughtTicket />
     </>
   );
 }

@@ -7,10 +7,10 @@ export default function Bottom({ posterURL, title, day, name }) {
         <img src={posterURL} alt={title}></img>
       </div>
       <div className="layoutBottom">
-        <h4>{title}</h4>
-        <h5>
+        <p>{title} </p>
+        <p>
           {} - {name}
-        </h5>
+        </p>
       </div>
     </div>
   );
