@@ -1,9 +1,9 @@
 import "./style.css";
 
-export default function MovieDesign({ id, posterURL, title }) {
+export default function MovieDesign({ unique, id, posterURL, title }) {
   return (
-    <div className="movie">
-      <img key={id} src={posterURL} alt={title}></img>
+    <div className="movie" onClick={() => console.log(unique, id)}>
+      <img key={unique} src={posterURL} alt={title}></img>
     </div>
   );
 }

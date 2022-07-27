@@ -24,6 +24,7 @@ export default function SelectMovie() {
         {listMovie.map((movie) => (
           <MovieDesign
             key={movie.id}
+            id={movie.id}
             posterURL={movie.posterURL}
             title={movie.title}
           />
