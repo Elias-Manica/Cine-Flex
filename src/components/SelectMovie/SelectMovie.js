@@ -25,7 +25,7 @@ export default function SelectMovie() {
           <MovieDesign
             key={movie.id}
             posterURL={movie.posterURL}
-            tittle={movie.tittle}
+            title={movie.title}
           />
         ))}
       </MoviesList>
