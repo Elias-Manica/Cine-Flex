@@ -2,6 +2,7 @@ import "./style.css";
 import React, { useEffect } from "react";
 import axios from "axios";
 import HourMovieDesign from "../HourMovieDesign/HourMovieDesign";
+import Bottom from "../Bottom/Bottom";
 
 export default function SelectHour() {
   const [hour, setHour] = React.useState([]);
@@ -35,13 +36,7 @@ export default function SelectHour() {
           />
         ))}
       </div>
-
-      <div className="bottom">
-        <div className="poster">
-          <img src={poster.posterURL} alt={poster.title}></img>
-        </div>
-        <h4>{poster.title}</h4>
-      </div>
+      <Bottom posterURL={poster.posterURL} title={poster.title} />
     </>
   );
 }
