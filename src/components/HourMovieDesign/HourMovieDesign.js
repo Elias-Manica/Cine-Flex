@@ -1,4 +1,5 @@
 import "./style.css";
+import { Link } from "react-router-dom";
 
 export default function HourMovieDesign({ weekday, date, hour }) {
   return (
@@ -8,9 +9,15 @@ export default function HourMovieDesign({ weekday, date, hour }) {
       </h3>
       <div className="selectHour">
         {hour.map((value) => (
-          <div className="squareHour" key={value.id}>
-            {value.name}
-          </div>
+          <Link to={`/assentos/${value.id}`} key={value.id}>
+            <div
+              className="squareHour"
+              key={value.id}
+              onClick={() => console.log(`${value.id}`)}
+            >
+              {value.name}
+            </div>
+          </Link>
         ))}
       </div>
     </div>

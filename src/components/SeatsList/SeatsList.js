@@ -1,4 +1,5 @@
 import "./style.css";
+import { useParams } from "react-router-dom";
 import React, { useEffect } from "react";
 import axios from "axios";
 import Bottom from "../Bottom/Bottom";
@@ -8,20 +9,24 @@ export default function SeatsList() {
   const [seats, setSeats] = React.useState([]);
   const [poster, setPoster] = React.useState([]);
   const [hour, setHour] = React.useState([]);
+  const [day, setDay] = React.useState([]);
+  const [hairline, setHairline] = React.useState("");
 
+  const params = useParams();
+  console.log(params);
   useEffect(() => {
     const promise = axios.get(
-      "https://mock-api.driven.com.br/api/v5/cineflex/showtimes/1/seats"
+      `https://mock-api.driven.com.br/api/v5/cineflex/showtimes/${params.idSessao}/seats`
     );
 
     promise.then((response) => {
       setSeats(response.data.seats);
       setPoster(response.data.movie);
       setHour(response.data);
+      setDay(response.data.day);
+      setHairline("-");
     });
   }, []);
-
-  console.log(hour);
 
   return (
     <>
@@ -59,6 +64,9 @@ export default function SeatsList() {
         posterURL={poster.posterURL}
         title={poster.title}
         name={hour.name}
+        day={day.weekday}
+        hairline={hairline}
+        setHairline={setHairline}
       />
     </>
   );

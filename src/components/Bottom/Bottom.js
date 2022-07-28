@@ -1,6 +1,7 @@
 import "./style.css";
+import React from "react";
 
-export default function Bottom({ posterURL, title, day, name }) {
+export default function Bottom({ posterURL, title, day, name, hairline }) {
   return (
     <div className="bottom">
       <div className="poster">
@@ -9,7 +10,7 @@ export default function Bottom({ posterURL, title, day, name }) {
       <div className="layoutBottom">
         <p>{title} </p>
         <p>
-          {} - {name}
+          {day} {hairline} {name}
         </p>
       </div>
     </div>

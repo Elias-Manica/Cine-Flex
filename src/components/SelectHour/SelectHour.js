@@ -34,6 +34,7 @@ export default function SelectHour() {
             weekday={movieHour.weekday}
             date={movieHour.date}
             hour={movieHour.showtimes}
+            id={movieHour.showtimes}
           />
         ))}
       </div>
