@@ -1,3 +1,5 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
 import "../assets/css/reset.css";
 import "../assets/css/style.css";
 
@@ -10,8 +12,15 @@ import BoughtTicket from "./BoughtTicket/BoughtTicket";
 export default function App() {
   return (
     <>
-      <Topo />
-      <BoughtTicket />
+      <BrowserRouter>
+        <Topo />
+        <Routes>
+          <Route path="/" element={<SelectMovie />} />
+          <Route path="/sessoes/:idFilme" element={<SelectHour />} />
+          <Route path="/assentos/:idSessao" element={<SeatsList />} />
+          <Route path="/sucesso" element={<BoughtTicket />} />
+        </Routes>
+      </BrowserRouter>
     </>
   );
 }
