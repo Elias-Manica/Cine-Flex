@@ -35,12 +35,14 @@ export default function SeatsList() {
   function handleForm(e) {
     e.preventDefault();
 
-    const ticket = {
-      name,
-      cpf,
-    };
-
-    console.log(ticket);
+    const ticket = axios.post(
+      "https://mock-api.driven.com.br/api/v7/cineflex/seats/book-many",
+      {
+        ids: seatId,
+        name: name,
+        cpf: cpf,
+      }
+    );
 
     setName("");
     setCpf("");
