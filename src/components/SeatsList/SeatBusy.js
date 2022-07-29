@@ -1,7 +1,14 @@
 import styled from "styled-components";
 
 export default function SeatBusy({ children, color }) {
-  return <Container color={color}>{children}</Container>;
+  return (
+    <Container
+      color={color}
+      onClick={() => console.log("Esse assento não está disponível")}
+    >
+      {children}
+    </Container>
+  );
 }
 
 const Container = styled.div`

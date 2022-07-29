@@ -13,11 +13,14 @@ export default function SeatsList() {
   const [hour, setHour] = React.useState([]);
   const [day, setDay] = React.useState([]);
   const [hairline, setHairline] = React.useState("");
+  const [name, setName] = React.useState("");
+  const [cpf, setCpf] = React.useState("");
+  const [seatId, setSeatId] = React.useState([]);
 
   const params = useParams();
   useEffect(() => {
     const promise = axios.get(
-      `https://mock-api.driven.com.br/api/v5/cineflex/showtimes/${params.idSessao}/seats`
+      `https://mock-api.driven.com.br/api/v7/cineflex/showtimes/${params.idSessao}/seats`
     );
 
     promise.then((response) => {
@@ -29,14 +32,41 @@ export default function SeatsList() {
     });
   }, []);
 
+  function handleForm(e) {
+    e.preventDefault();
+
+    const ticket = {
+      name,
+      cpf,
+    };
+
+    console.log(ticket);
+
+    setName("");
+    setCpf("");
+  }
+
+  function appendIdSeat(id) {
+    if (seatId.includes(id)) {
+      let indexId = seatId.indexOf(id);
+      seatId.splice(indexId, 1);
+    } else {
+      setSeatId([...seatId, id]);
+    }
+  }
+
+  console.log(seatId);
+
   return (
     <>
       <div className="seatBody">
         <h1>Selecione o(s) assento(s)</h1>
         <div className="showSeat">
           {seats.map((value) =>
-            !value.isAvailable ? (
-              <Seat key={value.id}>{value.name}</Seat>
+            value.isAvailable ? (
+              <div key={value.id} onClick={() => appendIdSeat(value.id)}>
+                <Seat>{value.name}</Seat>
+              </div>
             ) : (
               <SeatBusy key={value.id} color="#fbe192">
                 {value.name}
@@ -45,19 +75,35 @@ export default function SeatsList() {
           )}
         </div>
         <Subtitle />
-        <div className="buyerData">
-          <div className="nameBuyer">
-            <h2>Nome do comprador:</h2>
-            <input placeholder="Digite seu nome..."></input>
+        <form onSubmit={handleForm}>
+          <div className="buyerData">
+            <div className="nameBuyer">
+              <label htmlFor="name">Nome do comprador:</label>
+              <input
+                placeholder="Digite seu nome..."
+                type="text"
+                id="name"
+                onChange={(e) => setName(e.target.value)}
+                value={name}
+                required
+              ></input>
+            </div>
+            <div className="cpfBuyer">
+              <label htmlFor="cpf">CPF do comprador:</label>
+              <input
+                placeholder="Digite seu CPF..."
+                type="number"
+                id="cpf"
+                onChange={(e) => setCpf(e.target.value)}
+                value={cpf}
+                required
+              ></input>
+            </div>
+            <button className="buttonBuy" type="submit">
+              Reservar assento(s)
+            </button>
           </div>
-          <div className="cpfBuyer">
-            <h2>CPF do comprador:</h2>
-            <input placeholder="Digite seu CPF..."></input>
-          </div>
-        </div>
-        <div className="buttonBuy">
-          <p>Reservar assento(s)</p>
-        </div>
+        </form>
       </div>
       <Bottom
         posterURL={poster.posterURL}

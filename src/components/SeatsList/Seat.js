@@ -1,15 +1,15 @@
 import styled from "styled-components";
 import React from "react";
 
-export default function Seat({ children, color }) {
+export default function Seat({ children, color, seatId, setSeatId, id }) {
   const [selected, setSelected] = React.useState(false);
 
+  function seatClicked() {
+    setSelected(!selected);
+  }
+
   return (
-    <Container
-      color={color}
-      onClick={() => setSelected(!selected)}
-      selected={selected}
-    >
+    <Container color={color} onClick={() => seatClicked()} selected={selected}>
       {children}
     </Container>
   );

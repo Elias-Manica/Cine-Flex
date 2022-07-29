@@ -100,7 +100,7 @@
   margin-top: 30px;
 }
 
-.buyerData h2 {
+label {
   font-family: "Roboto";
   font-style: normal;
   font-weight: 400;
@@ -146,9 +146,6 @@
   justify-content: center;
   align-items: center;
   cursor: pointer;
-}
-
-.buttonBuy p {
   font-family: "Roboto";
   font-weight: 400;
   font-size: 18px;
@@ -159,4 +156,7 @@
   letter-spacing: 0.04em;
 
   color: #ffffff;
+}
+
+.buttonBuy p {
 }
