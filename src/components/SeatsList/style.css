@@ -48,6 +48,11 @@
   background: #8dd7cf;
   border: 1px solid #1aae9e;
   border-radius: 17px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  margin: 15px;
 }
 
 .seatPersonAvaib {
@@ -56,6 +61,11 @@
   background: #c3cfd9;
   border: 1px solid #7b8b99;
   border-radius: 17px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  margin: 15px;
 }
 
 .seatPersonUnAvaib {
@@ -64,6 +74,11 @@
   background: #fbe192;
   border: 1px solid #f7c52b;
   border-radius: 17px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  margin: 15px;
 }
 
 .subtitle-seat {

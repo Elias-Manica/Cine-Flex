@@ -4,6 +4,8 @@ import React, { useEffect } from "react";
 import axios from "axios";
 import Bottom from "../Bottom/Bottom";
 import Subtitle from "../Subtitle/Subtitle";
+import Seat from "./Seat";
+import SeatBusy from "./SeatBusy";
 
 export default function SeatsList() {
   const [seats, setSeats] = React.useState([]);
@@ -13,7 +15,6 @@ export default function SeatsList() {
   const [hairline, setHairline] = React.useState("");
 
   const params = useParams();
-  console.log(params);
   useEffect(() => {
     const promise = axios.get(
       `https://mock-api.driven.com.br/api/v5/cineflex/showtimes/${params.idSessao}/seats`
@@ -35,13 +36,11 @@ export default function SeatsList() {
         <div className="showSeat">
           {seats.map((value) =>
             !value.isAvailable ? (
-              <div className="seatPerson" key={value.id}>
-                {value.name}
-              </div>
+              <Seat key={value.id}>{value.name}</Seat>
             ) : (
-              <div className="seatPersonUnAvaib" key={value.id}>
+              <SeatBusy key={value.id} color="#fbe192">
                 {value.name}
-              </div>
+              </SeatBusy>
             )
           )}
         </div>
