@@ -160,3 +160,7 @@ label {
 
 .buttonBuy p {
 }
+
+.hide {
+  display: none;
+}

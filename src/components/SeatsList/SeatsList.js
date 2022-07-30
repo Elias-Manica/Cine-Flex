@@ -1,5 +1,5 @@
 import "./style.css";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import React, { useEffect } from "react";
 import axios from "axios";
 import Bottom from "../Bottom/Bottom";
@@ -16,8 +16,18 @@ export default function SeatsList() {
   const [name, setName] = React.useState("");
   const [cpf, setCpf] = React.useState("");
   const [seatId, setSeatId] = React.useState([]);
+  const [seatName, setSeatName] = React.useState([]);
 
   const params = useParams();
+
+  const navigate = useNavigate();
+
+  const toComponentSucess = () => {
+    navigate("/sucesso", {
+      state: { id: 1, name: { hour, name, cpf, seatName } },
+    });
+  };
+
   useEffect(() => {
     const promise = axios.get(
       `https://mock-api.driven.com.br/api/v7/cineflex/showtimes/${params.idSessao}/seats`
@@ -35,29 +45,43 @@ export default function SeatsList() {
   function handleForm(e) {
     e.preventDefault();
 
-    const ticket = axios.post(
+    const ticket = {
+      ids: seatId,
+      name: name,
+      cpf: cpf,
+    };
+
+    const promise = axios.post(
       "https://mock-api.driven.com.br/api/v7/cineflex/seats/book-many",
-      {
-        ids: seatId,
-        name: name,
-        cpf: cpf,
-      }
+      ticket
     );
+
+    promise.then((res) => {
+      toComponentSucess();
+      console.log(res);
+    });
+
+    promise.catch((erro) => {
+      alert(`algo de errado aconteceu ${erro}`);
+    });
 
     setName("");
     setCpf("");
   }
 
-  function appendIdSeat(id) {
+  function appendIdSeat(id, name) {
     if (seatId.includes(id)) {
       let indexId = seatId.indexOf(id);
       seatId.splice(indexId, 1);
+      let nameIndex = seatName.indexOf(name);
+      seatName.splice(nameIndex, 1);
     } else {
       setSeatId([...seatId, id]);
+      setSeatName([...seatName, name]);
     }
   }
 
-  console.log(seatId);
+  console.log(hour);
 
   return (
     <>
@@ -66,7 +90,10 @@ export default function SeatsList() {
         <div className="showSeat">
           {seats.map((value) =>
             value.isAvailable ? (
-              <div key={value.id} onClick={() => appendIdSeat(value.id)}>
+              <div
+                key={value.id}
+                onClick={() => appendIdSeat(value.id, value.name)}
+              >
                 <Seat>{value.name}</Seat>
               </div>
             ) : (
@@ -84,7 +111,6 @@ export default function SeatsList() {
               <input
                 placeholder="Digite seu nome..."
                 type="text"
-                id="name"
                 onChange={(e) => setName(e.target.value)}
                 value={name}
                 required

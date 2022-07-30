@@ -4,7 +4,7 @@ export default function SeatBusy({ children, color }) {
   return (
     <Container
       color={color}
-      onClick={() => console.log("Esse assento não está disponível")}
+      onClick={() => alert("Esse assento não está disponível")}
     >
       {children}
     </Container>
