@@ -19,9 +19,8 @@ export default function SelectHour() {
       setHour(response.data.days);
       setPoster(response.data);
     });
-  }, []);
+  }, [params.idFilme]);
 
-  console.log(params);
   return (
     <>
       <div className="hour">

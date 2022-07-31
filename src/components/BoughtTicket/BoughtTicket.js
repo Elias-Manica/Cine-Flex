@@ -1,11 +1,10 @@
 import "./style.css";
-import { Link, useLocation } from "react-router-dom";
-import React, { useEffect, useContext } from "react";
+import { Link } from "react-router-dom";
+import React from "react";
 import Context from "../Context";
 
 export default function BoughtTicket() {
-  const [data, setData] = React.useContext(Context);
-  console.log(data);
+  const [data] = React.useContext(Context);
 
   return (
     <div className="BoughtTicket">

@@ -1,6 +1,6 @@
 import "./style.css";
 import { useParams, useNavigate } from "react-router-dom";
-import React, { useEffect, useContext } from "react";
+import React, { useEffect } from "react";
 import axios from "axios";
 import Context from "../Context";
 
@@ -44,7 +44,7 @@ export default function SeatsList() {
       setDay(response.data.day);
       setHairline("-");
     });
-  }, []);
+  }, [params.idSessao]);
 
   function handleForm(e) {
     e.preventDefault();
