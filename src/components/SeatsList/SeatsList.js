@@ -73,7 +73,7 @@ export default function SeatsList() {
   }
 
   function appendIdSeat(id, name) {
-    if (seatId.includes(id)) {
+    if (seatId.includes(id) || seatName.includes(name)) {
       let indexId = seatId.indexOf(id);
       seatId.splice(indexId, 1);
       let nameIndex = seatName.indexOf(name);
@@ -83,6 +83,8 @@ export default function SeatsList() {
       setSeatName([...seatName, name]);
     }
   }
+
+  console.log(seatId, seatName);
 
   return (
     <>
