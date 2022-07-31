@@ -1,12 +1,11 @@
 import "./style.css";
 import { Link, useLocation } from "react-router-dom";
+import React, { useEffect, useContext } from "react";
+import Context from "../Context";
 
 export default function BoughtTicket() {
-  const location = useLocation();
-
-  const ticket = location.state.name;
-
-  console.log(location.state.name);
+  const [data, setData] = React.useContext(Context);
+  console.log(data);
 
   return (
     <div className="BoughtTicket">
@@ -15,21 +14,21 @@ export default function BoughtTicket() {
       </div>
       <div className="movieTicket">
         <h3>Filme e sessão</h3>
-        <p>{ticket.hour.movie.title}</p>
+        <p>{data.hour.movie.title}</p>
         <p>
-          {ticket.hour.day.date} {ticket.hour.name}
+          {data.hour.day.weekday} {data.hour.name}
         </p>
       </div>
       <div className="ticket">
         <h3>Ingressos</h3>
-        {ticket.seatName.map((value, index) => (
-          <p key={index}>assento {value}</p>
+        {data.seatName.map((seat, index) => (
+          <p key={index}>assento {seat}</p>
         ))}
       </div>
       <div className="shopper">
         <h3>Comprador</h3>
-        <p>Nome: {ticket.name}</p>
-        <p>CPF: {ticket.cpf}</p>
+        <p>Nome: {data.name}</p>
+        <p>CPF: {data.cpf}</p>
       </div>
       <Link to={"/"}>
         <div className="buttonHome">

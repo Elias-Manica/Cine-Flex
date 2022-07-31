@@ -1,7 +1,9 @@
 import "./style.css";
 import { useParams, useNavigate } from "react-router-dom";
-import React, { useEffect } from "react";
+import React, { useEffect, useContext } from "react";
 import axios from "axios";
+import Context from "../Context";
+
 import Bottom from "../Bottom/Bottom";
 import Subtitle from "../Subtitle/Subtitle";
 import Seat from "./Seat";
@@ -18,14 +20,16 @@ export default function SeatsList() {
   const [seatId, setSeatId] = React.useState([]);
   const [seatName, setSeatName] = React.useState([]);
 
+  const [data, setData] = React.useContext(Context);
+
   const params = useParams();
 
   const navigate = useNavigate();
 
   const toComponentSucess = () => {
-    navigate("/sucesso", {
-      state: { id: 1, name: { hour, name, cpf, seatName } },
-    });
+    setData({ ...data, hour, seatName, name, cpf });
+
+    navigate("/sucesso");
   };
 
   useEffect(() => {
@@ -58,7 +62,6 @@ export default function SeatsList() {
 
     promise.then((res) => {
       toComponentSucess();
-      console.log(res);
     });
 
     promise.catch((erro) => {
@@ -80,8 +83,6 @@ export default function SeatsList() {
       setSeatName([...seatName, name]);
     }
   }
-
-  console.log(hour);
 
   return (
     <>
