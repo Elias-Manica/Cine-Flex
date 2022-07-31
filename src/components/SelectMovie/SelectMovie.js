@@ -1,4 +1,4 @@
-import "./style.css";
+import { Container } from "./styles";
 import React, { useEffect } from "react";
 import axios from "axios";
 import MovieDesign from "../MovieDesign/MovieDesign";
@@ -18,7 +18,7 @@ export default function SelectMovie() {
   }, []);
 
   return (
-    <div className="selectMovie">
+    <Container>
       <h2>Selecione o filme</h2>
       <MoviesList>
         {listMovie.map((movie) => (
@@ -30,6 +30,6 @@ export default function SelectMovie() {
           />
         ))}
       </MoviesList>
-    </div>
+    </Container>
   );
 }

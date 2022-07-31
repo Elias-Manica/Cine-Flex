@@ -1,4 +1,4 @@
-import "./style.css";
+import { View, Container, BuyerData, Tittle, ButtonBuy } from "./styles";
 import { useParams, useNavigate } from "react-router-dom";
 import React, { useEffect } from "react";
 import axios from "axios";
@@ -86,9 +86,9 @@ export default function SeatsList() {
 
   return (
     <>
-      <div className="seatBody">
+      <View>
         <h1>Selecione o(s) assento(s)</h1>
-        <div className="showSeat">
+        <Container>
           {seats.map((value) =>
             value.isAvailable ? (
               <div
@@ -103,12 +103,12 @@ export default function SeatsList() {
               </SeatBusy>
             )
           )}
-        </div>
+        </Container>
         <Subtitle />
         <form onSubmit={handleForm}>
-          <div className="buyerData">
-            <div className="nameBuyer">
-              <label htmlFor="name">Nome do comprador:</label>
+          <BuyerData>
+            <div>
+              <Tittle htmlFor="name">Nome do comprador:</Tittle>
               <input
                 placeholder="Digite seu nome..."
                 type="text"
@@ -117,8 +117,8 @@ export default function SeatsList() {
                 required
               ></input>
             </div>
-            <div className="cpfBuyer">
-              <label htmlFor="cpf">CPF do comprador:</label>
+            <div>
+              <Tittle htmlFor="cpf">CPF do comprador:</Tittle>
               <input
                 placeholder="Digite seu CPF..."
                 type="number"
@@ -128,12 +128,10 @@ export default function SeatsList() {
                 required
               ></input>
             </div>
-            <button className="buttonBuy" type="submit">
-              Reservar assento(s)
-            </button>
-          </div>
+            <ButtonBuy type="submit">Reservar assento(s)</ButtonBuy>
+          </BuyerData>
         </form>
-      </div>
+      </View>
       <Bottom
         posterURL={poster.posterURL}
         title={poster.title}

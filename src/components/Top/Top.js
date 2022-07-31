@@ -1,13 +1,13 @@
-import "./style.css";
+import { Container } from "./styles";
 import { Link } from "react-router-dom";
 
 export default function Topo() {
   return (
     <>
       <Link to={"/"}>
-        <div className="topPage">
+        <Container>
           <h1>CINEFLEX</h1>
-        </div>
+        </Container>
       </Link>
     </>
   );

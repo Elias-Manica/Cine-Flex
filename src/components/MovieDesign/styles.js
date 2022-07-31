@@ -1,4 +1,6 @@
-.movie {
+import styled from "styled-components";
+
+export const Container = styled.div`
   width: 145px;
   height: 209px;
   background: #ffffff;
@@ -9,10 +11,10 @@
   justify-content: center;
   align-items: center;
   cursor: pointer;
-}
 
-.movie > img {
-  width: 129px;
-  height: 193px;
-  object-fit: cover;
-}
+  img {
+    width: 129px;
+    height: 193px;
+    object-fit: cover;
+  }
+`;

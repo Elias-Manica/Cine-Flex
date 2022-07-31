@@ -1,18 +1,18 @@
-import "./style.css";
+import { View, Poster } from "./styles";
 import React from "react";
 
 export default function Bottom({ posterURL, title, day, name, hairline }) {
   return (
-    <div className="bottom">
-      <div className="poster">
+    <View>
+      <Poster>
         <img src={posterURL} alt={title}></img>
-      </div>
-      <div className="layoutBottom">
+      </Poster>
+      <div>
         <p>{title} </p>
         <p>
           {day} {hairline} {name}
         </p>
       </div>
-    </div>
+    </View>
   );
 }

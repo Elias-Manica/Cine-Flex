@@ -1,4 +1,4 @@
-import "./style.css";
+import { Hour, Container } from "./styles";
 import { useParams } from "react-router-dom";
 import React, { useEffect } from "react";
 import axios from "axios";
@@ -23,10 +23,10 @@ export default function SelectHour() {
 
   return (
     <>
-      <div className="hour">
+      <Hour>
         <h2>horario</h2>
-      </div>
-      <div className="bodyshowHour">
+      </Hour>
+      <Container>
         {hour.map((movieHour) => (
           <HourMovieDesign
             key={movieHour.id}
@@ -36,7 +36,7 @@ export default function SelectHour() {
             id={movieHour.showtimes}
           />
         ))}
-      </div>
+      </Container>
       <Bottom posterURL={poster.posterURL} title={poster.title} />
     </>
   );

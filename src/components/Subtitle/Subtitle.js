@@ -1,18 +1,20 @@
+import { View, Container, SeatBusy, SeatAvaib, SeatUnAvaib } from "./styles";
+
 export default function Subtitle() {
   return (
-    <div className="subtitle">
-      <div className="subtitle-seat">
-        <div className="seatPersonBusy"></div>
+    <View>
+      <Container>
+        <SeatBusy></SeatBusy>
         <h6>Selecionado</h6>
-      </div>
-      <div className="subtitle-seat">
-        <div className="seatPersonAvaib"></div>
+      </Container>
+      <Container>
+        <SeatAvaib></SeatAvaib>
         <h6>Disponível</h6>
-      </div>
-      <div className="subtitle-seat">
-        <div className="seatPersonUnAvaib"></div>
+      </Container>
+      <Container>
+        <SeatUnAvaib></SeatUnAvaib>
         <h6>Indisponível</h6>
-      </div>
-    </div>
+      </Container>
+    </View>
   );
 }

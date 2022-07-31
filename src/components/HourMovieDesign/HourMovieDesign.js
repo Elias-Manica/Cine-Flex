@@ -1,21 +1,19 @@
-import "./style.css";
+import { View, Container, SquareDesign } from "./styles";
 import { Link } from "react-router-dom";
 
 export default function HourMovieDesign({ weekday, date, hour }) {
   return (
-    <div className="showHour">
+    <View>
       <h3>
         {weekday} - {date}
       </h3>
-      <div className="selectHour">
+      <Container>
         {hour.map((value) => (
           <Link to={`/assentos/${value.id}`} key={value.id}>
-            <div className="squareHour" key={value.id}>
-              {value.name}
-            </div>
+            <SquareDesign key={value.id}>{value.name}</SquareDesign>
           </Link>
         ))}
-      </div>
-    </div>
+      </Container>
+    </View>
   );
 }

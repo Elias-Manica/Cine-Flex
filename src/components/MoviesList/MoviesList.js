@@ -1,5 +1,5 @@
-import "./style.css";
+import { Container } from "./styles";
 
 export default function MoviesList(props) {
-  return <div className="moviesList">{props.children}</div>;
+  return <Container>{props.children}</Container>;
 }
