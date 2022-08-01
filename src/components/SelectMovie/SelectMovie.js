@@ -3,6 +3,7 @@ import React, { useEffect } from "react";
 import axios from "axios";
 import MovieDesign from "../MovieDesign/MovieDesign";
 import MoviesList from "../MoviesList/MoviesList";
+import gif from "../../assets/image/gifLoad.gif";
 
 export default function SelectMovie() {
   const [listMovie, setListMovie] = React.useState([]);
@@ -21,14 +22,18 @@ export default function SelectMovie() {
     <Container>
       <h2>Selecione o filme</h2>
       <MoviesList>
-        {listMovie.map((movie) => (
-          <MovieDesign
-            key={movie.id}
-            id={movie.id}
-            posterURL={movie.posterURL}
-            title={movie.title}
-          />
-        ))}
+        {listMovie.length === 0 ? (
+          <img src={gif} alt="laod"></img>
+        ) : (
+          listMovie.map((movie) => (
+            <MovieDesign
+              key={movie.id}
+              id={movie.id}
+              posterURL={movie.posterURL}
+              title={movie.title}
+            />
+          ))
+        )}
       </MoviesList>
     </Container>
   );

@@ -16,10 +16,15 @@ export const View = styled.div`
 
 export const Container = styled.div`
   display: flex;
+  a {
+    text-decoration: none;
+    color: #ffffff;
+  }
 `;
 
 export const SquareDesign = styled.div`
   height: 43px;
+  width: 80px;
   background: #e8833a;
   border-radius: 3px;
   margin: 30px 30px 30px 0px;

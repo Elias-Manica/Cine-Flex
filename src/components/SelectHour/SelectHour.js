@@ -4,6 +4,7 @@ import React, { useEffect } from "react";
 import axios from "axios";
 import HourMovieDesign from "../HourMovieDesign/HourMovieDesign";
 import Bottom from "../Bottom/Bottom";
+import gif from "../../assets/image/gifLoad.gif";
 
 export default function SelectHour() {
   const [hour, setHour] = React.useState([]);
@@ -27,15 +28,19 @@ export default function SelectHour() {
         <h2>horario</h2>
       </Hour>
       <Container>
-        {hour.map((movieHour) => (
-          <HourMovieDesign
-            key={movieHour.id}
-            weekday={movieHour.weekday}
-            date={movieHour.date}
-            hour={movieHour.showtimes}
-            id={movieHour.showtimes}
-          />
-        ))}
+        {hour.length === 0 ? (
+          <img src={gif} alt="load"></img>
+        ) : (
+          hour.map((movieHour) => (
+            <HourMovieDesign
+              key={movieHour.id}
+              weekday={movieHour.weekday}
+              date={movieHour.date}
+              hour={movieHour.showtimes}
+              id={movieHour.showtimes}
+            />
+          ))
+        )}
       </Container>
       <Bottom posterURL={poster.posterURL} title={poster.title} />
     </>

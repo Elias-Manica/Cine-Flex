@@ -8,6 +8,7 @@ import Bottom from "../Bottom/Bottom";
 import Subtitle from "../Subtitle/Subtitle";
 import Seat from "./Seat";
 import SeatBusy from "./SeatBusy";
+import gif from "../../assets/image/gifLoad.gif";
 
 export default function SeatsList() {
   const [seats, setSeats] = React.useState([]);
@@ -84,25 +85,27 @@ export default function SeatsList() {
     }
   }
 
-  console.log(seatId, seatName);
-
   return (
     <>
       <View>
         <h1>Selecione o(s) assento(s)</h1>
         <Container>
-          {seats.map((value) =>
-            value.isAvailable ? (
-              <div
-                key={value.id}
-                onClick={() => appendIdSeat(value.id, value.name)}
-              >
-                <Seat>{value.name}</Seat>
-              </div>
-            ) : (
-              <SeatBusy key={value.id} color="#fbe192">
-                {value.name}
-              </SeatBusy>
+          {seats.length === 0 ? (
+            <img src={gif} alt="load"></img>
+          ) : (
+            seats.map((value) =>
+              value.isAvailable ? (
+                <div
+                  key={value.id}
+                  onClick={() => appendIdSeat(value.id, value.name)}
+                >
+                  <Seat>{value.name}</Seat>
+                </div>
+              ) : (
+                <SeatBusy key={value.id} color="#fbe192">
+                  {value.name}
+                </SeatBusy>
+              )
             )
           )}
         </Container>

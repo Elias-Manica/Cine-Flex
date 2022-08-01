@@ -30,6 +30,11 @@ export const View = styled.div`
 
     color: #293845;
   }
+
+  a {
+    text-decoration: none;
+    color: #ffffff;
+  }
 `;
 
 export const Container = styled.div`

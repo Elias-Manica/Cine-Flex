@@ -20,4 +20,10 @@ export const Hour = styled.div`
 
 export const Container = styled.div`
   margin-bottom: 120px;
+  display: flex;
+  flex-direction: column;
+  img {
+    margin-left: auto;
+    margin-right: auto;
+  }
 `;
