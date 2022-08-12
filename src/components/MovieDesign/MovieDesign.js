@@ -6,6 +6,7 @@ export default function MovieDesign({ unique, id, posterURL, title }) {
     <Link to={`/sessoes/${id}`}>
       <Container>
         <img key={unique} src={posterURL} alt={title}></img>
+        <p>{title}</p>
       </Container>
     </Link>
   );

@@ -16,4 +16,8 @@ export const Container = styled.div`
     letter-spacing: 0.04em;
     color: #293845;
   }
+
+  a {
+    text-decoration: none;
+  }
 `;

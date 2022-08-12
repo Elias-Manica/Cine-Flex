@@ -49,28 +49,31 @@ export default function SeatsList() {
 
   function handleForm(e) {
     e.preventDefault();
+    if (seatId.length === 0) {
+      alert("Escolha alguma cadeira");
+    } else {
+      const ticket = {
+        ids: seatId,
+        name: name,
+        cpf: cpf,
+      };
 
-    const ticket = {
-      ids: seatId,
-      name: name,
-      cpf: cpf,
-    };
+      const promise = axios.post(
+        "https://mock-api.driven.com.br/api/v7/cineflex/seats/book-many",
+        ticket
+      );
 
-    const promise = axios.post(
-      "https://mock-api.driven.com.br/api/v7/cineflex/seats/book-many",
-      ticket
-    );
+      promise.then((res) => {
+        toComponentSucess();
+      });
 
-    promise.then((res) => {
-      toComponentSucess();
-    });
+      promise.catch((erro) => {
+        alert(`algo de errado aconteceu ${erro}`);
+      });
 
-    promise.catch((erro) => {
-      alert(`algo de errado aconteceu ${erro}`);
-    });
-
-    setName("");
-    setCpf("");
+      setName("");
+      setCpf("");
+    }
   }
 
   function appendIdSeat(id, name) {

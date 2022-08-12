@@ -18,6 +18,8 @@ export default function SelectMovie() {
     });
   }, []);
 
+  console.log(listMovie);
+
   return (
     <Container>
       <h2>Selecione o filme</h2>
