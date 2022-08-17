@@ -21,7 +21,51 @@ export const View = styled.div`
 export const Container = styled.div`
   flex-wrap: wrap;
   display: flex;
+  width: 50%;
   justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+
+  @media (max-width: 1262px) {
+    width: 55%;
+  }
+  @media (max-width: 1154px) {
+    width: 58%;
+  }
+  @media (max-width: 1099px) {
+    width: 60%;
+  }
+  @media (max-width: 1063px) {
+    width: 65%;
+  }
+  @media (max-width: 993px) {
+    width: 70%;
+  }
+  @media (max-width: 927px) {
+    width: 72%;
+  }
+  @media (max-width: 904px) {
+    width: 75%;
+  }
+  @media (max-width: 872px) {
+    width: 80%;
+  }
+  @media (max-width: 823px) {
+    width: 85%;
+  }
+  @media (max-width: 781px) {
+    width: 90%;
+  }
+  @media (max-width: 742px) {
+    width: 95%;
+  }
+  @media (max-width: 708px) {
+    width: 100%;
+  }
+  @media (max-width: 664px) {
+    display: grid;
+    grid-template-columns: repeat(10, 10%);
+  }
 `;
 
 export const BuyerData = styled.div`
