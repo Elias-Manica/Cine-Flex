@@ -26,7 +26,7 @@ I am always available to answer questions
 
 Send me an email: eliasmanica@poli.ufrj.br
 
-Connect with me on LinkedIn.
+Connect with me on [LinkedIn](https://www.linkedin.com/in/eliasmanica/).
 
 ### `npm start`
 
