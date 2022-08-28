@@ -2,9 +2,31 @@
 
 A responsive website that simulates the purchase of movie tickets on posters.
 
-## Available Scripts
+gif
 
-In the project directory, you can run:
+Try it out now at https://cine-flex-liard.vercel.app/
+
+## About this Project
+
+This is a Single-Page Application that simulates the routes of a movie ticket purchase website. Below are the implemented features:
+
+- Choose the desired movie
+- Choose movie session
+- Select seat
+- Customer information form
+- Purchase of tickets
+
+## Why?
+
+This project was made to be part of my GitHub portfolio.
+
+I will be happy if you can give me some feedback on the code, layout or anything you think could have been better in the project.
+
+I am always available to answer questions
+
+Send me an email: eliasmanica@poli.ufrj.br
+
+Connect with me on LinkedIn.
 
 ### `npm start`
 
