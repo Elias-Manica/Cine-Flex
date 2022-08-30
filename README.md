@@ -2,7 +2,9 @@
 
 A responsive website that simulates the purchase of movie tickets on posters.
 
-gif
+<p align="center">
+  <img width="460" height="300" src="src/assets/image/to_readme/showgif.gif">
+</p>
 
 Try it out now at https://cine-flex-liard.vercel.app/
 
