@@ -2,9 +2,7 @@
 
 A responsive website that simulates the purchase of movie tickets on posters.
 
-<p align="center">
-  <img width="460" height="300" src="src/assets/image/to_readme/showgif.gif">
-</p>
+<center><img src="https://user-images.githubusercontent.com/103606213/187323116-c5047013-2a62-4ef8-b4ac-57f1ff28a966.gif"></center>
 
 Try it out now at https://cine-flex-liard.vercel.app/
 
@@ -50,8 +48,4 @@ npm i
 ```bash
 npm start
 ```
-6. You can optionally build the project running
-```bash
-npm run build
-```
-7. Finally access http://localhost:3000 on your browser
+6. Finally access http://localhost:3000 on your browser
