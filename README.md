@@ -40,12 +40,12 @@ The following tools and frameworks were used in the construction of the project:
 ## How to run
 
 1. Clone this repository
-1. Install dependencies
+2. Install dependencies
 ```bash
 npm i
 ```
-5. Run the front-end with
+3. Run the front-end with
 ```bash
 npm start
 ```
-6. Finally access http://localhost:3000 on your browser
+4. Finally access http://localhost:3000 on your browser
